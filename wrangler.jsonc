@@ -6,5 +6,6 @@
   "assets": {
     "directory": "public",
     "binding": "ASSETS"
-  }
+  },
+  "workers_dev": true
 }
