@@ -1,4 +1,6 @@
 import { Hono } from "hono";
+// @ts-expect-error
+import App from "./public/app.mjs";
 
 const app = new Hono();
 
@@ -12,7 +14,7 @@ function Script({ type, children }: { type: string; children: string }) {
   );
 }
 
-function _Layout(props: { children: any }) {
+function Layout(props: { children: any }) {
   return (
     <html lang="en">
       <head>
@@ -40,16 +42,12 @@ function _Layout(props: { children: any }) {
 
 function Top(props: { messages: string[] }) {
   return (
-    <_Layout>
+    <Layout>
       <Script type="module">{`window.__initialProps = ${JSON.stringify(props)}`}</Script>
-      <main id="root"></main>
-      {/* <h1>Hello Hono!</h1>
-        <ul>
-          {props.messages.map((message) => {
-            return <li>{message}!!</li>;
-          })}
-        </ul> */}
-    </_Layout>
+      <main id="root">
+        <App messages={props.messages} />
+      </main>
+    </Layout>
   );
 }
 
