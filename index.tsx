@@ -18,6 +18,9 @@ function Layout(props: { children: any }) {
   return (
     <html lang="en">
       <head>
+        <link rel="stylesheet" href="/pico.min.css" />
+        <link rel="stylesheet" href="/pico.jade.min.css" />
+        {/* <link rel="stylesheet" href="/pico.sand.min.css" /> */}
         <Script type="importmap">
           {JSON.stringify(
             {
